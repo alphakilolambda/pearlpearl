@@ -77,7 +77,8 @@ export default function PricingPage() {
     },
   ]
 
-  const convertToTokens = (price: number) => {
+  const convertToTokens = (price: number | undefined) => {
+    if (!price) return 0
     return Math.round(price / PEARL_TOKEN_PRICE)
   }
 
