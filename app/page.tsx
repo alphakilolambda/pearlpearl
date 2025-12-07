@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -95,40 +96,40 @@ export default function Home() {
 
             {/* Center Nav Links */}
             <div className="hidden md:flex md:flex-1 md:items-center md:justify-center md:space-x-10">
-              <a
+              <Link
                 href="/features"
                 className="text-sm font-normal text-gray-700 transition-colors hover:text-gray-900"
               >
                 Product
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/pricing"
                 className="text-sm font-normal text-gray-700 transition-colors hover:text-gray-900"
               >
                 Pricing
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/use-cases"
                 className="text-sm font-normal text-gray-700 transition-colors hover:text-gray-900"
               >
                 Use Cases
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/docs"
                 className="text-sm font-normal text-gray-700 transition-colors hover:text-gray-900"
               >
                 Docs
-              </a>
+              </Link>
             </div>
 
             {/* Right Actions */}
             <div className="flex items-center space-x-4">
-              <a
+              <Link
                 href="/signup"
                 className="rounded-lg bg-black px-5 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:bg-gray-900"
               >
                 Get Started
-              </a>
+              </Link>
             </div>
           </div>
         </nav>
@@ -149,12 +150,12 @@ export default function Home() {
                 on a no-code platform.
               </p>
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                <a
+                <Link
                   href="/signup"
                   className="rounded-lg bg-black px-8 py-3.5 text-base font-medium text-white transition-all duration-200 hover:bg-gray-900"
                 >
                   Get started
-                </a>
+                </Link>
                 <button
                   onClick={() => setShowDemoModal(true)}
                   className="rounded-lg border border-gray-900 bg-transparent px-8 py-3.5 text-base font-medium text-gray-900 transition-all duration-200 hover:bg-gray-50"
@@ -1316,12 +1317,12 @@ print(f'Call completed: {result}')`}
           </p>
           <p className="mt-2 text-sm text-gray-500">SOC 2 Type 2 Compliant</p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
+            <Link
               href="/signup"
               className="w-full rounded-lg bg-white px-8 py-3.5 text-base font-medium text-black transition-all duration-200 hover:bg-gray-100 sm:w-auto"
             >
               Get started
-            </a>
+            </Link>
             <button
               onClick={() => setShowDemoModal(true)}
               className="w-full rounded-lg border border-white bg-transparent px-8 py-3.5 text-base font-medium text-white transition-all duration-200 hover:bg-white hover:text-black sm:w-auto"
@@ -1342,12 +1343,12 @@ print(f'Call completed: {result}')`}
             </div>
             <div>
               <p className="text-sm font-medium text-gray-400">Documentation</p>
-              <a
+              <Link
                 href="/docs"
                 className="mt-2 block text-white transition-colors hover:text-gray-400"
               >
                 View Docs →
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -1361,28 +1362,28 @@ print(f'Call completed: {result}')`}
               <h3 className="text-sm font-semibold text-white">Company</h3>
               <ul className="mt-4 space-y-3">
                 <li>
-                  <a
+                  <Link
                     href="/about"
                     className="text-sm text-gray-400 transition-colors hover:text-white"
                   >
                     About
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="/careers"
                     className="text-sm text-gray-400 transition-colors hover:text-white"
                   >
                     Careers
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="/contact"
                     className="text-sm text-gray-400 transition-colors hover:text-white"
                   >
                     Contact
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -1390,28 +1391,28 @@ print(f'Call completed: {result}')`}
               <h3 className="text-sm font-semibold text-white">Product</h3>
               <ul className="mt-4 space-y-3">
                 <li>
-                  <a
+                  <Link
                     href="/features"
                     className="text-sm text-gray-400 transition-colors hover:text-white"
                   >
                     Features
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="/pricing"
                     className="text-sm text-gray-400 transition-colors hover:text-white"
                   >
                     Pricing
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="/integrations"
                     className="text-sm text-gray-400 transition-colors hover:text-white"
                   >
                     Integrations
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -1419,28 +1420,28 @@ print(f'Call completed: {result}')`}
               <h3 className="text-sm font-semibold text-white">Developers</h3>
               <ul className="mt-4 space-y-3">
                 <li>
-                  <a
+                  <Link
                     href="/docs"
                     className="text-sm text-gray-400 transition-colors hover:text-white"
                   >
                     Documentation
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="/docs"
                     className="text-sm text-gray-400 transition-colors hover:text-white"
                   >
                     API Reference
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="/docs"
                     className="text-sm text-gray-400 transition-colors hover:text-white"
                   >
                     SDKs
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -1448,28 +1449,28 @@ print(f'Call completed: {result}')`}
               <h3 className="text-sm font-semibold text-white">Legal</h3>
               <ul className="mt-4 space-y-3">
                 <li>
-                  <a
+                  <Link
                     href="/privacy"
                     className="text-sm text-gray-400 transition-colors hover:text-white"
                   >
                     Privacy
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="/terms"
                     className="text-sm text-gray-400 transition-colors hover:text-white"
                   >
                     Terms
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="/security"
                     className="text-sm text-gray-400 transition-colors hover:text-white"
                   >
                     Security
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
