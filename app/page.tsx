@@ -476,7 +476,9 @@ export default function Home() {
               <div className="relative mt-12 mx-auto flex h-80 w-full max-w-md items-center justify-center">
                 {/* Connecting Lines */}
                 <svg
-                  className="absolute h-full w-full"
+                  className="absolute left-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2"
+                  viewBox="0 0 320 320"
+                  preserveAspectRatio="xMidYMid meet"
                   style={{ overflow: 'visible' }}
                 >
                   {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => {
