@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: '/pearlpearl',
+  // basePath removed for custom domain (nlpearlai.xyz)
   images: {
     unoptimized: true,
   },
