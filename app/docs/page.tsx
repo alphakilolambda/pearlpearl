@@ -55,8 +55,24 @@ export default function DocsPage() {
         <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-20 items-center justify-between">
             <Link href="/" className="flex items-center space-x-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-black text-white">
-                <span className="text-sm font-bold">P</span>
+              <div className="relative h-8 w-8 flex-shrink-0">
+                {/* Logo image - SVG, PNG or JPG */}
+                <img
+                  src="/logo.svg"
+                  alt="Pearl"
+                  className="h-full w-full object-contain"
+                  onError={(e) => {
+                    // Fallback to text logo if image not found
+                    const target = e.currentTarget as HTMLImageElement
+                    target.style.display = 'none'
+                    const fallback = target.nextElementSibling as HTMLElement
+                    if (fallback) fallback.classList.remove('hidden')
+                  }}
+                />
+                {/* Fallback text logo */}
+                <div className="hidden h-full w-full items-center justify-center rounded-lg bg-black text-white">
+                  <span className="text-sm font-bold">P</span>
+                </div>
               </div>
               <span className="font-serif text-xl font-light text-gray-900">
                 Pearl
@@ -229,38 +245,6 @@ export default function DocsPage() {
                       </div>
                     </section>
 
-                    <section>
-                      <h2 className="text-2xl font-semibold text-gray-900">
-                        Stay Informed
-                      </h2>
-                      <p className="mt-4 leading-relaxed text-gray-700">
-                        Join our community for updates, support, and knowledge
-                        sharing with industry experts and peers.
-                      </p>
-                      <div className="mt-4">
-                        <a
-                          href="https://www.linkedin.com/company/nlpearl"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 rounded-lg border border-gray-900 bg-white px-6 py-3 text-base font-medium text-gray-900 transition-all duration-200 hover:bg-gray-50"
-                        >
-                          Join Our LinkedIn Community
-                          <svg
-                            className="h-4 w-4"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                            />
-                          </svg>
-                        </a>
-                      </div>
-                    </section>
                   </div>
                 </div>
               )}

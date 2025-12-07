@@ -196,8 +196,24 @@ export default function SignUpPage() {
 
           {/* Logo */}
           <div className="relative z-10 mb-12">
-            <div className="flex h-16 w-16 items-center justify-center rounded-lg bg-white">
-              <span className="text-2xl font-bold text-black">P</span>
+            <div className="relative h-16 w-16 flex-shrink-0">
+              {/* Logo image - SVG, PNG or JPG - Inverted for dark background */}
+              <img
+                src="/logo.svg"
+                alt="Pearl"
+                className="h-full w-full object-contain brightness-0 invert"
+                onError={(e) => {
+                  // Fallback to text logo if image not found
+                  const target = e.currentTarget as HTMLImageElement
+                  target.style.display = 'none'
+                  const fallback = target.nextElementSibling as HTMLElement
+                  if (fallback) fallback.classList.remove('hidden')
+                }}
+              />
+              {/* Fallback text logo */}
+              <div className="hidden h-full w-full items-center justify-center rounded-lg bg-white text-black">
+                <span className="text-2xl font-bold">P</span>
+              </div>
             </div>
           </div>
 

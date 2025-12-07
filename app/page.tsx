@@ -84,14 +84,28 @@ export default function Home() {
           <div className="flex h-20 items-center justify-between border-b border-gray-100">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <a href="/" className="flex items-center space-x-2">
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-black text-white">
-                  <span className="text-sm font-bold">P</span>
+              <Link href="/" className="flex items-center space-x-2">
+                <div className="relative h-8 w-8 flex-shrink-0">
+                  {/* Logo image - SVG, PNG or JPG */}
+                  <img
+                    src="/logo.svg"
+                    alt="Pearl"
+                    className="h-full w-full object-contain"
+                    onError={(e) => {
+                      // Fallback to text logo if image not found
+                      e.currentTarget.style.display = 'none'
+                      e.currentTarget.nextElementSibling?.classList.remove('hidden')
+                    }}
+                  />
+                  {/* Fallback text logo */}
+                  <div className="hidden h-full w-full items-center justify-center rounded-lg bg-black text-white">
+                    <span className="text-sm font-bold">P</span>
+                  </div>
                 </div>
                 <span className="font-serif text-xl font-light text-gray-900">
                   Pearl
                 </span>
-              </a>
+              </Link>
             </div>
 
             {/* Center Nav Links */}
@@ -435,7 +449,7 @@ export default function Home() {
             </div>
 
             {/* Right Column */}
-            <div>
+            <div className="flex flex-col items-center text-center">
               {/* Tag */}
               <div className="mb-4 inline-flex items-center gap-2 rounded-lg border border-orange-600 bg-orange-500 px-3 py-1.5">
                 <svg
@@ -459,7 +473,7 @@ export default function Home() {
               </p>
 
               {/* Circular Radial Icon Cluster */}
-              <div className="relative mt-12 flex h-80 w-full items-center justify-center">
+              <div className="relative mt-12 mx-auto flex h-80 w-full max-w-md items-center justify-center">
                 {/* Connecting Lines */}
                 <svg
                   className="absolute h-full w-full"
@@ -488,7 +502,7 @@ export default function Home() {
                 </svg>
 
                 {/* Central Pearl Logo - Asterisk */}
-                <div className="relative z-10 flex h-16 w-16 items-center justify-center">
+                <div className="absolute left-1/2 top-1/2 z-10 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center">
                   <svg
                     className="h-8 w-8 text-gray-400"
                     fill="currentColor"
@@ -630,8 +644,8 @@ export default function Home() {
                       key={i}
                       className="absolute z-10 h-14 w-14"
                       style={{
-                        left: `${x - 28}px`,
-                        top: `${y - 28}px`,
+                        left: `calc(50% + ${x - centerX - 28}px)`,
+                        top: `calc(50% + ${y - centerY - 28}px)`,
                       }}
                     >
                       {logo.component}
@@ -641,7 +655,7 @@ export default function Home() {
               </div>
 
               {/* Stats Block */}
-              <div className="mt-8 rounded-lg border border-gray-800 bg-gray-900 p-6">
+              <div className="mt-8 w-full max-w-sm rounded-lg border border-gray-800 bg-gray-900 p-6">
                 <div className="space-y-4">
                   <div>
                     <p className="text-sm text-gray-400">Active Integrations</p>
@@ -1335,11 +1349,11 @@ print(f'Call completed: {result}')`}
           <div className="mt-16 grid gap-8 sm:grid-cols-3">
             <div>
               <p className="text-sm font-medium text-gray-400">Phone Support</p>
-              <p className="mt-2 text-white">+1 (555) 123-4567</p>
+              <p className="mt-2 text-white">+1 (555) 123-3000</p>
             </div>
             <div>
               <p className="text-sm font-medium text-gray-400">Email Support</p>
-              <p className="mt-2 text-white">support@pearl.ai</p>
+              <p className="mt-2 text-white">support@nlpearlai.xyz</p>
             </div>
             <div>
               <p className="text-sm font-medium text-gray-400">Documentation</p>
@@ -1357,6 +1371,34 @@ print(f'Call completed: {result}')`}
       {/* SECTION 11 - Footer (Black) */}
       <footer className="border-t border-gray-900 bg-black">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+          {/* Logo */}
+          <div className="mb-8">
+            <Link href="/" className="flex items-center space-x-2">
+              <div className="relative h-8 w-8 flex-shrink-0">
+                {/* Logo image - SVG, PNG or JPG - Inverted for dark background */}
+                <img
+                  src="/logo.svg"
+                  alt="Pearl"
+                  className="h-full w-full object-contain brightness-0 invert"
+                  onError={(e) => {
+                    // Fallback to text logo if image not found
+                    const target = e.currentTarget as HTMLImageElement
+                    target.style.display = 'none'
+                    const fallback = target.nextElementSibling as HTMLElement
+                    if (fallback) fallback.classList.remove('hidden')
+                  }}
+                />
+                {/* Fallback text logo */}
+                <div className="hidden h-full w-full items-center justify-center rounded-lg bg-white text-black">
+                  <span className="text-sm font-bold">P</span>
+                </div>
+              </div>
+              <span className="font-serif text-xl font-light text-white">
+                Pearl
+              </span>
+            </Link>
+          </div>
+          
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
             <div>
               <h3 className="text-sm font-semibold text-white">Company</h3>
@@ -1479,8 +1521,24 @@ print(f'Call completed: {result}')`}
           {/* Bottom Row */}
           <div className="mt-12 flex flex-col items-center justify-between border-t border-gray-900 pt-8 sm:flex-row">
             <div className="flex items-center space-x-2">
-              <div className="flex h-6 w-6 items-center justify-center rounded bg-white text-black">
-                <span className="text-xs font-bold">P</span>
+              <div className="relative h-6 w-6 flex-shrink-0">
+                {/* Logo image - SVG, PNG or JPG - Inverted for dark background */}
+                <img
+                  src="/logo.svg"
+                  alt="Pearl"
+                  className="h-full w-full object-contain brightness-0 invert"
+                  onError={(e) => {
+                    // Fallback to text logo if image not found
+                    const target = e.currentTarget as HTMLImageElement
+                    target.style.display = 'none'
+                    const fallback = target.nextElementSibling as HTMLElement
+                    if (fallback) fallback.classList.remove('hidden')
+                  }}
+                />
+                {/* Fallback text logo */}
+                <div className="hidden h-full w-full items-center justify-center rounded bg-white text-black">
+                  <span className="text-xs font-bold">P</span>
+                </div>
               </div>
               <span className="font-serif text-sm font-light text-gray-400">
                 Pearl
@@ -1488,15 +1546,9 @@ print(f'Call completed: {result}')`}
             </div>
             <div className="mt-4 flex items-center space-x-4 sm:mt-0">
               <a
-                href="#"
-                className="text-gray-400 transition-colors hover:text-white"
-              >
-                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                </svg>
-              </a>
-              <a
-                href="#"
+                href="https://x.com/NL_pearl_ai"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 transition-colors hover:text-white"
               >
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">

@@ -89,8 +89,24 @@ export default function PricingPage() {
         <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-20 items-center justify-between">
             <Link href="/" className="flex items-center space-x-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-black">
-                <span className="text-sm font-bold">P</span>
+              <div className="relative h-8 w-8 flex-shrink-0">
+                {/* Logo image - SVG, PNG or JPG - Inverted for dark background */}
+                <img
+                  src="/logo.svg"
+                  alt="Pearl"
+                  className="h-full w-full object-contain brightness-0 invert"
+                  onError={(e) => {
+                    // Fallback to text logo if image not found
+                    const target = e.currentTarget as HTMLImageElement
+                    target.style.display = 'none'
+                    const fallback = target.nextElementSibling as HTMLElement
+                    if (fallback) fallback.classList.remove('hidden')
+                  }}
+                />
+                {/* Fallback text logo */}
+                <div className="hidden h-full w-full items-center justify-center rounded-lg bg-white text-black">
+                  <span className="text-sm font-bold">P</span>
+                </div>
               </div>
               <span className="font-serif text-xl font-light text-white">
                 Pearl
