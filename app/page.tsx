@@ -678,26 +678,10 @@ export default function Home() {
       <section className="bg-black py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Header */}
-          <div className="mb-16 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
+          <div className="mb-16">
             <h2 className="font-serif text-4xl font-light text-white sm:text-5xl">
               From Calls to Insights. From Insights to Action.
             </h2>
-            <button className="flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-medium text-black transition-all duration-200 hover:bg-gray-100">
-              Get started - It's free
-              <svg
-                className="h-4 w-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 7l5 5m0 0l-5 5m5-5H6"
-                />
-              </svg>
-            </button>
           </div>
 
           {/* Two Panels */}
