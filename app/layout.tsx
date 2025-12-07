@@ -10,6 +10,9 @@ export const metadata: Metadata = {
       { url: '/favicon.ico', type: 'image/x-icon' },
     ],
   },
+  other: {
+    'virtual-protocol-site-verification': '32363a076dea113adeb52d30377fc634',
+  },
 }
 
 export default function RootLayout({
